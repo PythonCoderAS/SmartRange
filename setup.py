@@ -1,4 +1,9 @@
+from pathlib import Path
+
 from setuptools import setup
+
+this_directory = Path(__file__).parent
+long_description = (this_directory / "README.md").read_text()
 
 setup(
     name='smart_range',
@@ -9,5 +14,8 @@ setup(
     author='PythonCoderAS',
     author_email='sarkaraoyan@gmail.com',
     description='A class to easily deal with ranges.',
-    extras_require={"docs": ["sphinx"]}
+    extras_require={"docs": ["sphinx"]},
+    long_description=long_description,
+    long_description_content_type='text/markdown',
+    python_requires='>=3.6'
 )
