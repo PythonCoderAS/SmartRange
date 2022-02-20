@@ -118,9 +118,9 @@ class SmartRange:
                 end = start + int(part[1:]) - 1
                 # If we say +25, we want 25 numbers, not to end at the 25th index (26 numbers).
             if start is None:
-                raise NoMinimumValueError(part)
+                raise NoMinimumValueError(end)
             if end is None:
-                raise NoMaximumValueError(part)
+                raise NoMaximumValueError(start)
             if end < start:
                 raise NegativeRangeError(start, end)
             if locked_max and max(start, end) > locked_max:
@@ -130,7 +130,7 @@ class SmartRange:
         return ranges
 
     def __iter__(self) -> Generator[int, None, None]:
-        """Returns a generator containing all of the numbers in the smart range.
+        """Returns a generator containing all the numbers in the smart range.
 
         .. note::
             In order to iterate over the list of range objects, use the :py:attr:`ranges` attribute, such as:

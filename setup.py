@@ -7,7 +7,7 @@ long_description = (this_directory / "README.md").read_text()
 
 setup(
     name='smart_range',
-    version='1.1.0',
+    version='1.1.1',
     packages=['smart_range'],
     url='https://github.com/PythonCoderAS/SmartRange',
     license='MIT',
