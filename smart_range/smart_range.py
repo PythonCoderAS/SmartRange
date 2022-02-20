@@ -37,7 +37,11 @@ class SmartRange:
     """
 
     ranges: List[range]
-    r"""The list of :py:class:`range`\ s. Can be externally modified to add, change, or remove ranges."""
+    r"""The list of :py:class:`range`\ s. Can be externally modified to add, change, or remove ranges.
+    
+    .. warning::
+       Adding a range out of order may result in unordered output from :py:meth:`~SmartRange.__iter__`.
+    """
 
     def __init__(self, range_str: str, *, min_val: Optional[int] = None, max_val: Optional[int] = None):
         """
@@ -53,7 +57,7 @@ class SmartRange:
 
             .. warning::
                If a ``max_val`` is supplied, no item in the range string can have an end value greater than the
-               value.
+               supplied maximum value.
         :type max_val: Optional[int]
         :raises NoMinimumValueError: If a type 2 or 4 range item is used at the beginning of the range string and no
             ``min_val`` is supplied.
@@ -65,7 +69,33 @@ class SmartRange:
         """
         self.ranges = self._parse_range(range_str, min_val, max_val)
 
+    @classmethod
+    def from_range_list(cls, range_list: List[range]) -> 'SmartRange':
+        r"""Create a new :py:class:`SmartRange` object from a list of :py:class:`range`\ s.
+
+        .. note::
+            :py:class:`range` objects exclude the ``stop`` parameter, so ``range(1, 2)`` is not the same as the
+            range string ``1-2``. The range object for ``1-2`` is ``range(1, 3)``.
+
+        .. warning::
+            When using this method, none of the checks for :py:meth:`~SmartRange.__init__` are performed. In order to
+            process these checks, this workaround can be used:
+
+            .. code-block:: python
+
+                smart_range = SmartRange.from_range_list([range(1, 11), range(11, 16])
+                validated_range = SmartRange(str(smart_range))
+
+        :param range_list: The list of :py:class:`range`\ s.
+        :type range_list: List[range]
+        """
+        obj = cls("")
+        obj.ranges = range_list
+        return obj
+
     def _parse_range(self, range_str: str, min_val: Optional[int] = None, max_val: Optional[int] = None) -> List[range]:
+        if not range_str:
+            return []
         parts = range_str.split(",")
         ranges = []
         locked_max = max_val
