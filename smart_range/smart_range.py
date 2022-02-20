@@ -6,7 +6,7 @@ from .exceptions import ExceedsMaximumValueError, NegativeRangeError, NoMaximumV
 class SmartRange:
     """The class that represents a range of values. Input consists of a string containing the range.
 
-    A range string is a comma-separated list of range items. There are 4 types of range items supported by the class:
+    A range string is a comma-separated list of range items. There are 5 types of range items supported by the class:
 
     #. Classic range with a defined start and finish. Example: ``1-5``
 
@@ -34,6 +34,10 @@ class SmartRange:
             ``<min_val> - <min_val+5>``
 
           * Example where the range string is ``1-5,+8`` -> ``1-5,6-13``
+
+    #. A singular dash, indicating a range with an undefined start and an undefined finish. This requires the
+       ``min_val`` and the ``max_val`` parameter to be supplied to the :py:meth:`~SmartRange.__init__` method.
+       Additionally, this item can only show up once at the end of a range string. Example: ``-``
     """
 
     ranges: List[range]
