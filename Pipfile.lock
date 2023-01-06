@@ -74,11 +74,11 @@
         },
         "importlib-metadata": {
             "hashes": [
-                "sha256:0eafa39ba42bf225fc00e67f701d71f85aead9f878569caf13c3724f704b970f",
-                "sha256:404d48d62bba0b7a77ff9d405efd91501bef2e67ff4ace0bed40a0cf28c3c7cd"
+                "sha256:7efb448ec9a5e313a57655d35aa54cd3e01b7e1fbcf72dce1bf06119420f5bad",
+                "sha256:e354bedeb60efa6affdcc8ae121b73544a7aa74156d047311948f6d711cd378d"
             ],
             "markers": "python_version < '3.10'",
-            "version": "==5.2.0"
+            "version": "==6.0.0"
         },
         "jinja2": {
             "hashes": [
@@ -144,11 +144,11 @@
         },
         "pygments": {
             "hashes": [
-                "sha256:56a8508ae95f98e2b9bdf93a6be5ae3f7d8af858b43e02c5a2ff083726be40c1",
-                "sha256:f643f331ab57ba3c9d89212ee4a2dabc6e94f117cf4eefde99a0574720d14c42"
+                "sha256:b3ed06a9e8ac9a9aae5a6f5dbe78a8a58655d17b43b93c078f094ddc476ae297",
+                "sha256:fa7bd7bd2771287c0de303af8bfdfc731f51bd2c6a47ab69d117138893b82717"
             ],
             "markers": "python_version >= '3.6'",
-            "version": "==2.13.0"
+            "version": "==2.14.0"
         },
         "pytz": {
             "hashes": [
@@ -174,11 +174,11 @@
         },
         "sphinx": {
             "hashes": [
-                "sha256:58c140ecd9aa0abbc8ff6da48a266648eac9e5bfc8e49576efd2979bf46f5961",
-                "sha256:c2aeebfcb0e7474f5a820eac6177c7492b1d3c9c535aa21d5ae77cab2f3600e4"
+                "sha256:5818c36a250f60d2767f2cee14247b7f39882d97f582e3696958000b65665c5b",
+                "sha256:6a8e43b5030b9870d7402fb56f5efeebb83b76d65bf1c567a89b555340e127b2"
             ],
             "index": "pypi",
-            "version": "==6.0.0"
+            "version": "==6.1.1"
         },
         "sphinxcontrib-applehelp": {
             "hashes": [
